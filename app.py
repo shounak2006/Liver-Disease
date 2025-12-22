@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+
 
 # Load trained model
 model = joblib.load("model.pkl")
@@ -94,5 +98,30 @@ if st.button("Analyze Liver Health"):
         st.success("Low Risk of Liver Disease Detected")
         st.write(f"Risk Probability: {probability:.2f}")
 
+        st.subheader("Model Performance Overview")
 
-    st.warning("⚠ This system is for screening assistance only and not a diagnostic tool.")
+    # Confusion matrix from final Logistic Regression evaluation
+    cm = [
+        [7, 27],
+        [4, 79]
+    ]
+
+    fig, ax = plt.subplots(figsize=(4, 3))
+    sns.heatmap(
+        cm,
+        annot=True,
+        fmt="d",
+        cmap="Blues",
+        xticklabels=["No Disease", "Disease"],
+        yticklabels=["No Disease", "Disease"],
+        ax=ax
+    )
+
+    ax.set_xlabel("Predicted Label")
+    ax.set_ylabel("True Label")
+    ax.set_title("Confusion Matrix – Logistic Regression")
+
+    st.pyplot(fig)
+
+
+st.warning("⚠ This system is for screening assistance only and not a diagnostic tool.")
