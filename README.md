@@ -174,7 +174,7 @@ python src/train_model.py
 * Suitable for screening-oriented decision support
 
   
-##Confusion Matrix
+## Confusion Matrix
 <img width="731" height="631" alt="image" src="https://github.com/user-attachments/assets/d6be9bd5-7aea-4af5-a2f0-7efb31ede482" />
 
 Live Application URL: https://liver-disease-jamu8gabp6ftsbm5zpny9q.streamlit.app/
