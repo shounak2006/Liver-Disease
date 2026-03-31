@@ -9,7 +9,7 @@ from sklearn.metrics import confusion_matrix
 # Load trained model
 model = joblib.load("model.pkl")
 
-st.set_page_config(page_title="Liver Disease Analyzer")
+st.set_page_config(page_title="Liver")
 
 st.title("Liver Disease Risk Analyzer")
 st.caption("Virtual decision-support system based on liver function test values")
